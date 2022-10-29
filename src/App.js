@@ -1,23 +1,18 @@
-import logo from './logo.svg';
 import './App.css';
+import StripeContainer from './components/StripeContainer';
+import product from "./assets/pillow-covers.jpg";
+import { useState } from 'react';
 
 function App() {
+
+  const [showItem, setShowItem] = useState(false)
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <h1>Boho Design Store</h1>
+     {showItem ? <StripeContainer /> : <> <h3>$10.00</h3> <img src={product} alt="pillow-covers" height={500}/>
+     <button onClick={()=> setShowItem(true)}>Purchase item</button>
+     </>}
     </div>
   );
 }
